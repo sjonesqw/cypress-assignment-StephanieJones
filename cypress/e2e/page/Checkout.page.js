@@ -1,17 +1,17 @@
 class checkout{
     get firstprod(){
-
+  
        return('#add-to-cart-sauce-labs-backpack')
     }
     get rmvfirstprod(){
         return('#remove-sauce-labs-backpack')
     }
     get secondprod(){
-        
+       
         return('#add-to-cart-sauce-labs-bike-light')
      }
      get thirdprod(){
-        
+       
         return('#add-to-cart-sauce-labs-bolt-t-shirt')
      }
     get password(){
@@ -20,26 +20,26 @@ class checkout{
     get loginbutton(){
         return ('#login-button')
     }
-login(){
+ login(){
     cy.visit('https://www.saucedemo.com/')
     cy.get('[data-test="username"]').click().type('standard_user')
     cy.get('[data-test="password"]').click().type('secret_sauce').wait(100)
     cy.get('[data-test="login-button"]').click().wait(100)
-}    
-
-add1product(){
+ }   
+  
+ add1product(){
     cy.get(this.firstprod).should('be.visible')
     cy.get(this.firstprod).click()
-}
-add2products(){
+ }
+ add2products(){
     cy.get(this.secondprod).should('be.visible')
     cy.get(this.secondprod).click()
     cy.get(this.thirdprod).should('be.visible')
     cy.get(this.thirdprod).click()
-}
-checkoutflow(){
+ }
+ checkoutflow(){
     cy.get('.shopping_cart_link').click().wait(1000)
-
+  
     cy.get('[data-test="checkout"]').click()
     cy.url().should('eq','https://www.saucedemo.com/checkout-step-one.html')
     //type a random first name
@@ -56,8 +56,7 @@ checkoutflow(){
     cy.get('[data-test="finish"]').click()
     cy.url().should('eq','https://www.saucedemo.com/checkout-complete.html')
     cy.get('.complete-header').should('contain','THANK YOU FOR YOUR ORDER')
-}
-
-}
-export default new checkout()
-
+ }
+  
+ }
+ export default new checkout()
