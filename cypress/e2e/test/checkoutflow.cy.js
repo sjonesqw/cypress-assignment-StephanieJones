@@ -1,8 +1,8 @@
-import checkout from '../../e2e/pages/Checkout.page'
+import checkout from '../../e2e/page/Checkout.page'
  
 describe('Checkout Workflow', () => {
  beforeEach(() => {
-   cy.visit('/')
+   cy.visit('https://www.saucedemo.com/')
  })
  
  it('Add a single item to cart and complete the checkout process', () => {
